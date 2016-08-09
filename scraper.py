@@ -11,7 +11,7 @@ html = scraperwiki.scrape("http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm"
 root = lxml.html.fromstring(html)
 # root.cssselect("a[class='journal_label']")
 
-print root.text
+print root[0]
 #
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
