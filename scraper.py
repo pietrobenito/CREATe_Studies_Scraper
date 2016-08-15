@@ -9,7 +9,7 @@ html = scraperwiki.scrape("http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm"
 
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-# root.cssselect("a[class='journal_label']")
+root.cssselect("a[class='journal_label']")
 
 print lxml.html.tostring(root)
 #
