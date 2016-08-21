@@ -15,8 +15,10 @@ for linkText in root.cssselect("a[class='textlink']"):
 for row in data:
   print row['title'].decode("ascii", "ignore")
 #  scraperwiki.sqlite.save(unique_keys=['url'], data={"title" : row['title'].decode("ascii", "ignore"), "url" : row['url'].decode("ascii", "ignore")})
-  scraperwiki.sqlite.save(unique_keys=['url'], data={"title" : "test123", "url" : "test456"})
+#  scraperwiki.sqlite.save(unique_keys=['url'], data={"title" : "test123", "url" : "test456"})
 #scraperwiki.sqlite.save(unique_keys=['url'], data=data)
+scraperwiki.sqlite.save(unique_keys=['url'], data={"title" : "test123", "url" : "test456"})
+
 
 print scraperwiki.sqlite.show_tables()
 #
