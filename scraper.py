@@ -2,13 +2,7 @@
 # including some code snippets below that you should find helpful
 
 import scraperwiki
-import lxml.html
-#
-# # Read in a page
-html = scraperwiki.scrape("http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm")
-#
-# # Find something on the page using css selectors
-root = lxml.html.fromstring(html)
+
 root.cssselect("div[class='node']")
 #
 # # Write out to the sqlite database using scraperwiki library
