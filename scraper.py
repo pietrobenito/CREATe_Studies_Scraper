@@ -11,10 +11,10 @@ root = lxml.html.fromstring(html)
 data = []
 for linkText in root.cssselect("a[class='textlink']"):
   data.append({'title' : linkText.text_content(), 'url' : linkText.get('href')})
-
-for row in data:
-  scraperwiki.sqlite.save(unique_keys=['url'], data={'title' : row[0]['title'], 'url' : row[0]['url']})
 print data
+#for row in data:
+#  scraperwiki.sqlite.save(unique_keys=['url'], data={'title' : row[0]['title'], 'url' : row[0]['url']})
+
 #scraperwiki.sqlite.save(unique_keys=['url'], data=data)
 
 print scraperwiki.sqlite.show_tables()
