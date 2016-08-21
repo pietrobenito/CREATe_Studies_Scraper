@@ -10,10 +10,10 @@ html = scraperwiki.scrape("http://www.ssrn.com/link/Intellectual-Property-Copyri
 root = lxml.html.fromstring(html)
 data = []
 for linkText in root.cssselect("a[class='textlink']"):
-  data.append({"title" : linkText.text_content(), "url" : linkText.get('href')})
+  data.append({"title" : linkText.text_content().encode('utf-8'), "url" : linkText.get('href').encode('utf-8')})
 
 for row in data:
-  print row['title'].decode("utf8","ignore")
+  print row['title']
 #  scraperwiki.sqlite.save(unique_keys=['url'], data={"title" : row['title'], "url" : row['url']})
 
 #scraperwiki.sqlite.save(unique_keys=['url'], data=data)
