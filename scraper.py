@@ -12,8 +12,8 @@ root = lxml.html.fromstring(html)
 for linkText in root.cssselect("a[class='textlink']"):
   data = {
     'test' : linkText.text_content()
-
-print data
+  }
+  print data
 #
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
