@@ -14,7 +14,8 @@ for linkText in root.cssselect("a[class='textlink']"):
     'title' : linkText.text_content(),
     'url' : linkText.get('href')
   }
-  scraperwiki.save_sqlite(unique_keys=['url'], data=data)
+  scraperwiki.sqlite.save(unique_keys=['url'], data=data)
+#  scraperwiki.save_sqlite(unique_keys=['url'], data=data)
   print data
 #
 # # Write out to the sqlite database using scraperwiki library
