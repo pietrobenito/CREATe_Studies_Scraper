@@ -12,7 +12,7 @@ root = lxml.html.fromstring(html)
 for linkText in root.cssselect("a[class='textlink']"):
   data = {
     'title' : linkText.text_content(),
-    'url' : linkText.href()
+    'url' : linkText.url()
   }
   print data
 #
