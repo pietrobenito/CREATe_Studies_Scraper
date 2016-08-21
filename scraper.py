@@ -13,7 +13,7 @@ for linkText in root.cssselect("a[class='textlink']"):
   data.append({"title" : linkText.text_content(), "url" : linkText.get('href')})
 
 for row in data:
-  print urllib.quote(row['title'])
+  print row['title'].decode("utf8","ignore")
 #  scraperwiki.sqlite.save(unique_keys=['url'], data={"title" : row['title'], "url" : row['url']})
 
 #scraperwiki.sqlite.save(unique_keys=['url'], data=data)
