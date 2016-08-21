@@ -10,7 +10,9 @@ html = scraperwiki.scrape("http://www.ssrn.com/link/Intellectual-Property-Copyri
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
 for linkText in root.cssselect("a[class='textlink']"):
-  scraperwiki.sqlite.save(unique_keys=['url'], data={'title' : linkText.text_content(), 'url' : linkText.get('href')})
+  data={'title' : linkText.text_content(), 'url' : linkText.get('href')}
+
+scraperwiki.sqlite.save(unique_keys=['url'], data=data)
 
 print scraperwiki.sqlite.show_tables()
 #
