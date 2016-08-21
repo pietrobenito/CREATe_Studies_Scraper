@@ -5,13 +5,15 @@ import scraperwiki
 import lxml.html
 #
 # # Read in a page
-html = scraperwiki.scrape("http://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm")
+html = scraperwiki.scrape("http://www.ssrn.com/link/Intellectual-Property-Copyright-Law.html")
 
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-root.cssselect("a[class='journal_label']")
+for linkText in root.cssselect("a[class='textlink']"):
+  data = {
+    'test' : linkText.text_content()
 
-print lxml.html.tostring(root)
+print data
 #
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
