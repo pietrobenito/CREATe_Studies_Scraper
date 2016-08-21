@@ -9,6 +9,7 @@ html = scraperwiki.scrape("http://www.ssrn.com/link/Intellectual-Property-Copyri
 
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
+data = []
 for linkText in root.cssselect("a[class='textlink']"):
   data.append({'title' : linkText.text_content(), 'url' : linkText.get('href')})
 
