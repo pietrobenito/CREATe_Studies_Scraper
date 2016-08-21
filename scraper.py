@@ -3,7 +3,6 @@
 
 import scraperwiki
 
-root.cssselect("div[class='node']")
 #
 # # Write out to the sqlite database using scraperwiki library
 scraperwiki.sqlite.save(unique_keys=['a'], data={"a":"test", "bbb":"Hi there"})
