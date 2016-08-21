@@ -1,8 +1,7 @@
 # This is a template for a Python scraper on morph.io (https://morph.io)
 # including some code snippets below that you should find helpful
 
-import scraperwiki
-import lxml.html
+import scraperwiki,lxml.html,sqlite3
 #
 # # Read in a page
 html = scraperwiki.scrape("http://www.ssrn.com/link/Intellectual-Property-Copyright-Law.html")
@@ -13,9 +12,10 @@ data = []
 for linkText in root.cssselect("a[class='textlink']"):
   data.append({'title' : linkText.text_content(), 'url' : linkText.get('href')})
 
-
+for row in data:
+  scraperwiki.sqlite.save(unique_keys=['url'], data={'title'=row['title'], 'url'=row['url']})
 print data
-scraperwiki.sqlite.save(unique_keys=['url'], data=data)
+#scraperwiki.sqlite.save(unique_keys=['url'], data=data)
 
 print scraperwiki.sqlite.show_tables()
 #
