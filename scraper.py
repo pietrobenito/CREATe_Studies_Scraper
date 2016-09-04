@@ -4,7 +4,7 @@
 import scraperwiki,lxml.html,sqlite3,urllib
 #
 # # Read in a page
-html = scraperwiki.scrape("http://www.ssrn.com/link/Intellectual-Property-Copyright-Law.html")
+html = scraperwiki.scrape("http://www.ssrn.com/link/economics-entrepreneurship.html")
 
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
